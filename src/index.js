@@ -1,24 +1,35 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+
 import {
-    Activities,
+    // Activities,
     Home,
-    Login,
-    MyRoutines,
-    Register,
-    Routines
+    // Login,
+    // MyRoutines,
+    // Register,
+    // Routines
 } from './components';
+
+import {
+    fetchActivities
+} from './api'
+
 
 const App = () => {
     return (
-      <div className="app">
-        <Activities />
-        <Home />
-        <Login />
-        <MyRoutines />
-        <Register />
-        <Routines />
-      </div>
+        <header>
+      <h1>Fitness Tracker</h1>
+      </header>
     )
+    
+    //   <div className="app">
+    //     <Activities />
+    //     <Home />
+    //     <Login />
+    //     <MyRoutines />
+    //     <Register />
+    //     <Routines />
+    //   </div>
 
 }
 
