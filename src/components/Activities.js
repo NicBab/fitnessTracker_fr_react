@@ -1,8 +1,10 @@
-import React from 'react';
-import { Activities } from '.';
+import React, { useState } from 'react';
+import { getActivities } from '../api';
 
-const getAllActivities = (async => {
-    
-})
+const Activities = () => {
+    return (
+        <h1>Activities Page</h1>
+    )
+}
 
 export default Activities;

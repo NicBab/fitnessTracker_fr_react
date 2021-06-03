@@ -1,12 +1,7 @@
-import React from 'react';
-import { MyRoutines } from '.';
+import React, { useState } from 'react';
 
-const fetchRoutinesByUser = (async => {
-    try {
-        
-    } catch (error) {
-      throw error
-    }
-})
+const MyRoutines = () => {
+    return <h1>MyRoutines Page</h1>
+}
 
 export default MyRoutines;

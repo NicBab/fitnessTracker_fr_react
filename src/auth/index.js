@@ -1,3 +1,6 @@
+export function createUser(user) {
+}
+
 export function storeCurrentUser(user) {
     localStorage.setItem('currentUser', JSON.stringify(user))
 };

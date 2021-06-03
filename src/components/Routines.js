@@ -1,12 +1,9 @@
-import React from 'react';
-import { Routines } from '.';
+import React, { useState } from 'react';
 
-const fetchRoutines = (async => {
-    try {
-        
-    } catch (error) {
-      throw error
-    }
-})
+const Routines = () => {
+    return (
+        <h1>Routines Page</h1>
+    )
+}
 
 export default Routines;
