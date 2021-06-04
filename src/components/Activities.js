@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
+
 import { getActivities } from '../api';
+
+import './Activities.css';
 
 const Activities = () => {
     return (
-        <h1>Activities Page</h1>
+        <div id="main">
+            <h1>Activities Page</h1>
+        </div>
+        
     )
 }
 

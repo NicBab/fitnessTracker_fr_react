@@ -11,7 +11,8 @@ import {
 
 
 import {
-    getCurrentUser
+    getCurrentUser,
+
 } from './auth';
 
 
@@ -26,11 +27,13 @@ import {
 
 import {
     Header,
+    Register,
     Home,
     Activities,
     Routines,
-    MyRoutines
-} from './components';
+    MyRoutines,
+    Footer,
+} from './components/Index';
 
 
 
@@ -43,16 +46,6 @@ const App = () => {
   const [activities, setActivities] = useState([]);
   const [routines, setRoutines] = useState([]);
   const [myRoutines, setMyRoutines] = useState([]);
-
-//   useEffect(() => {
-//     getUserData()
-//       .then(users => {
-//         setUserList(users)
-//       })
-//       .catch(error => {
-//         throw error
-//       });
-//   }, []);
 
   useEffect(() => {
     if (!currentUser) {
@@ -116,25 +109,36 @@ const App = () => {
                 <Redirect to="/" />
               </Switch>
             </>
-
           : 
               <Switch>
-                <Route exact path="/">
+                <Route path="/">
                   <h2 style={{
                     padding: ".5em"
-                  }}>Please log in, above.</h2>
+                  }}>Welcome to Fitness TrackR... 
+                        Please log in or register above.</h2>
                 </Route>
                 <Redirect to="/" />
               </Switch>
             }
-            
       </div>
     </Router>
   );
 }
 
 ReactDOM.render(
-   
-      <App />, document.getElementById('root')
-    
+      <App />, document.getElementById('root')   
 );
+
+
+
+
+
+//   useEffect(() => {
+//     getUserData()
+//       .then(users => {
+//         setUserList(users)
+//       })
+//       .catch(error => {
+//         throw error
+//       });
+//   }, []);

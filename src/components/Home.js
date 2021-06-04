@@ -1,8 +1,14 @@
 import React, { useState } from 'react';
 
+import { Button, TextField } from '@material-ui/core';
+
+import Register from './Register'
+
+import './Home.css';
+
 const Home = () => {
-    return (
-        <h1>Home Page</h1>
+    return(
+        <Register />
     )
 }
 
