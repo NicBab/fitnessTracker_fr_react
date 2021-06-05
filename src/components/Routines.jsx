@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Routines.css';
+import '../css/Routines.css'
 import {
     Paper,
     TableContainer,
@@ -15,7 +15,7 @@ const Routines = () => {
     const [routines, setRoutines] = useState([]);
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}/routines`)
+        axios.get(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}routines`)
          .then(({ data }) => {
              if (data.length) {
                  setRoutines(data)

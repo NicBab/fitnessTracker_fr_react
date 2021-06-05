@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './Activities.css';
+import '../css/Activities.css'
 import {
     Paper,
     TableContainer,
@@ -15,7 +15,7 @@ const Activities = () => {
     const [activities, setActivities] = useState([]);
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}/activities`)
+        axios.get(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}activities`)
          .then(({ data }) => {
              if (data.length) {
                  setActivities(data)

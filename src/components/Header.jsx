@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import './Header.css';
+import '../css/Header.css';
 import Register from './Register';
+import Home from './Home';
 import {
   storeCurrentUser,
   clearCurrentUser,
   createUser
 } from '../auth';
+
+import { loginUser } from '../api';
 
 const Header = ({
   currentUser,
@@ -20,23 +23,22 @@ const Header = ({
   }
 
 
-  const handleUserRegister = (event) => {
-    // window.location.href = <Register />
+  const handleUserRegister = (event) => { 
+    window.location.href = <Home />
     setCurrentUser(true)
   }
 
   //Needs work
   const handleUserLogin = (event) => {
-    storeCurrentUser(); 
-    setCurrentUser(true);
+    window.location.href = <Home />
+    loginUser()
+  
   }
 
   //Needs work
   const handleUserLogout = (event) => {
-    // localStorage.clear();
-    // window.location.href = '';
     clearCurrentUser();
-    setCurrentUser(null);
+    setCurrentUser(false);
   }
 
   return (

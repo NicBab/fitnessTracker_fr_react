@@ -41,15 +41,15 @@
   // }
 
 
+   // useEffect(() => {
+    // if (!currentUser) {
+    //   setRoutines(true);
+    //   setUserRoutines([]);
+    //   setActivities(true);
+    //   return;
+    // }
 
 
-    // useEffect(() => {
-  //   if (!currentUser) {
-  //     setRoutines(true);
-  //     setUserRoutines([]);
-  //     setActivities(true);
-  //     return;
-  //   }
 
   //   getRoutinesByUser(currentUser.id)
   //     .then(routines => {

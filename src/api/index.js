@@ -32,24 +32,18 @@ export async function registerUser(username, password) {
 
 
 export async function loginUser(username, password) {
-  return axios
-   .post(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}users/login`, {
-     username,
-     password
-   })
-   .then(({data: {token} }) => {
-     if (token) {
-       localStorage.setItem('token', JSON.stringify(token))
-       window.location.href = `${window.location.origin}${Home}`
-     } else {
-       setErrorMessage('Something Went Wrong')
-     }
-   })
-   .catch(() => {
-     setErrorMessage('Something Went Wrong')
-   })
-}
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}users/login`, {
+        username,
+        password
+      })
+      console.log(response)
+      // const token = 
 
+    } catch(error) {
+      throw error
+    }  
+}
 
 
 

@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { Button, TextField } from '@material-ui/core';
 import Register from './Register'
 import Login from './Login'
-import './Home.css';
+import '../css/Home.css';
 
 const Home = () => {
     return(
-        <Register />
+        <>
+        <h1 id="head">Welcome to my Fitness TrackR</h1>
+            <Register />
+            <Login />
+        </>
     )
 }
 

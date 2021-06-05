@@ -12,7 +12,6 @@ import {
 
 import {
     getCurrentUser,
-
 } from './auth';
 
 
@@ -47,7 +46,7 @@ const App = () => {
   const [routines, setRoutines] = useState([]);
   const [myRoutines, setMyRoutines] = useState([]);
 
-
+ 
 
   return (
     <Router>
@@ -60,7 +59,6 @@ const App = () => {
           currentUser
           ? <>
               <Switch>
-                
                 <Route path="/home">
                   <Home />
                 </Route>
@@ -77,24 +75,19 @@ const App = () => {
                   <MyRoutines />
                 </Route>
 
-                <Route exact path="/">
-                  <h2 style={{
-                    padding: ".5em"
-                  }}>Welcome, { currentUser.username }!</h2>
+                <Route exact path="/login">
+                  <h2 style={{padding: ".5em"}}>Welcome</h2>
                 </Route>
                 
-                <Redirect to="/" />
+                <Redirect to="/home" />
               </Switch>
             </>
            : 
                <Switch>
                  <Route path="/">
-                   <h2 style={{
-                     padding: ".5em"
-                   }}>Welcome to Fitness TrackR... 
-                        Please log in or register above.</h2>
+                   <h2 style={{padding: ".5em"}}>Welcome to Fitness TrackR...log in or register above.</h2>
                  </Route>
-                 <Redirect to="/login" />
+                 <Redirect to="/home" />
               </Switch>
             }
       </div>
@@ -105,3 +98,7 @@ const App = () => {
 ReactDOM.render(
       <App />, document.getElementById('root')   
 );
+
+
+
+// { currentUser.username }!
