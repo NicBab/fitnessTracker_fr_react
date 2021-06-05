@@ -1,37 +1,58 @@
 import axios from 'axios';
 
+import { storeCurrentUser } from '../auth'
+
 const BASE_URL = 'http://fitnesstrac-kr.herokuapp.com/api'
+
+const BASE = process.env.REACT_APP_FITNESS_TRACKR_API_URL
+
 const userToken = localStorage.getItem('token');
 
 
 export async function registerUser(username, password) {
-  const url = `${BASE_URL}/users/register`
-  await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": 'application/json',
-      "Authorization": `Bearer ${userToken}`
-    },
-    body: JSON.stringify({
-      user: {
-        username: username,
-        password: password,
-      },
-    }),
-  })
-    .then((response) => response.json())
-    .then((result) => {
-      console.log(result);
-      setToken(result.data.token);
-    })
-    .catch(console.error);
+  try {
+    const response =
+        await fetch(`${BASE}/users/register`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                username: username,
+                password: password,
+            }),
+        })
+    const data = await response.json()
+    const token = await data.token
+    storeCurrentUser(token)
+  } catch (error) {
+      console.log(error)
+  }
 };
-function setToken(token) {
-  localStorage.setItem("token", token);
+
+
+export async function loginUser(username, password) {
+  return axios
+   .post(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}users/login`, {
+     username,
+     password
+   })
+   .then(({data: {token} }) => {
+     if (token) {
+       localStorage.setItem('token', JSON.stringify(token))
+       window.location.href = `${window.location.origin}${Home}`
+     } else {
+       setErrorMessage('Something Went Wrong')
+     }
+   })
+   .catch(() => {
+     setErrorMessage('Something Went Wrong')
+   })
 }
-function getToken() {
-  return localStorage.getItem("token");
-}
+
+
+
+
 
 
 export async function getUserData() {

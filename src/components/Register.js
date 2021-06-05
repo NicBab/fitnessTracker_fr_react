@@ -4,6 +4,8 @@ import { useState } from 'react';
 
 import{ Button, TextField } from '@material-ui/core';
 
+import {registerUser} from '../api'
+
 import './Register.css'
 
 
@@ -12,9 +14,10 @@ const Register = () => {
     const [password, setPassword] = useState();
 
     const onFormSubmit = (event)=> {
-        event.preventDefault();
-        console.log(username,password)
-    };
+      event.preventDefault();
+      registerUser(username, password);
+      console.log(username,password)
+  };
 
     return (
         <form id="form" noValidate autoComplete="off" onSubmit={onFormSubmit}>
@@ -27,15 +30,18 @@ const Register = () => {
           />
 
           <TextField 
-            id="password" 
+            id="password"
+            type="password" 
             label="Password"
             onInput={(event) => {
                 setPassword(event.target.value);
             }} 
           />
+
           <Button type="submit">Register</Button>
         </form>
     )
 }
 
 export default Register;
+

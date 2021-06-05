@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 
+import ReactDOM from 'react-dom';
 
 import {
     BrowserRouter as Router,
@@ -47,30 +47,30 @@ const App = () => {
   const [routines, setRoutines] = useState([]);
   const [myRoutines, setMyRoutines] = useState([]);
 
-  useEffect(() => {
-    if (!currentUser) {
-      setRoutines(true);
-      setUserRoutines([]);
-      setActivities(true);
-      return;
-    }
+  // useEffect(() => {
+  //   if (!currentUser) {
+  //     setRoutines(true);
+  //     setUserRoutines([]);
+  //     setActivities(true);
+  //     return;
+  //   }
 
-    getRoutinesByUser(currentUser.id)
-      .then(routines => {
-        setUserRoutines(routines);
-      })
-      .catch(error => {
-        throw error
-      });
+  //   getRoutinesByUser(currentUser.id)
+  //     .then(routines => {
+  //       setUserRoutines(routines);
+  //     })
+  //     .catch(error => {
+  //       throw error
+  //     });
 
-    getActivities(currentUser.id)
-      .then(activities => {
-        setActivities(activities);
-      })
-      .catch(error => {
-        throw error
-      });
-  }, [currentUser]);
+  //   getActivities(currentUser.id)
+  //     .then(activities => {
+  //       setActivities(activities);
+  //     })
+  //     .catch(error => {
+  //       throw error
+  //     });
+  // }, [currentUser]);
 
   return (
     <Router>
@@ -109,15 +109,15 @@ const App = () => {
                 <Redirect to="/" />
               </Switch>
             </>
-          : 
-              <Switch>
-                <Route path="/">
-                  <h2 style={{
-                    padding: ".5em"
-                  }}>Welcome to Fitness TrackR... 
+           : 
+               <Switch>
+                 <Route path="/">
+                   <h2 style={{
+                     padding: ".5em"
+                   }}>Welcome to Fitness TrackR... 
                         Please log in or register above.</h2>
-                </Route>
-                <Redirect to="/" />
+                 </Route>
+                 <Redirect to="/" />
               </Switch>
             }
       </div>
@@ -128,17 +128,3 @@ const App = () => {
 ReactDOM.render(
       <App />, document.getElementById('root')   
 );
-
-
-
-
-
-//   useEffect(() => {
-//     getUserData()
-//       .then(users => {
-//         setUserList(users)
-//       })
-//       .catch(error => {
-//         throw error
-//       });
-//   }, []);

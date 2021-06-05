@@ -1,0 +1,40 @@
+    // const registerUser = async () => {
+    //   return await fetch (
+    //     `${process.env.REACT_APP_FITNESS_TRACKR_API_URL}users/register`,
+    //     {
+    //       method: "POST",
+    //       headers: {
+    //         "Content-Type": "application/json",
+    //       },
+    //       body: JSON.stringify({
+    //         username,
+    //         password,
+    //       }),
+    //     }
+    //   )
+    //     .then((response) => response.json())
+    //     .then(({ token }) => {
+    //       localStorage.setItem('token', JSON.stringify(token));
+
+    //     })
+    //     .catch(console.error)
+    // };
+
+    // function setToken(token) {
+    //   localStorage.setItem("token", token);
+    // }   
+    // function getToken() {
+    //   return localStorage.getItem("token");
+    // }
+
+
+
+  // useEffect(() => {
+  //   setSelectedUser(userList[0]);
+  // }, [ userList ]);
+
+  // const handleSelectChange = (event) => {
+  //   const id = event.target.value;
+  //   const user = userList.find(user => user.id == id);
+  //   setSelectedUser(user);
+  // }

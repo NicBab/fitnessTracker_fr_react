@@ -1,18 +1,12 @@
 import React, { useState, useEffect } from 'react';
-
 import { NavLink } from 'react-router-dom';
-
 import './Header.css';
-
 import Register from './Register';
-
 import {
   storeCurrentUser,
   clearCurrentUser,
   createUser
 } from '../auth';
-
-
 
 
 const Header = ({
@@ -27,8 +21,6 @@ const Header = ({
   }
 
   const handleUserRegister = (event) => {
-    // Register();
-    console.log(event)
     setCurrentUser(true)
   }
 
@@ -38,7 +30,6 @@ const Header = ({
   }
 
   const handleUserLogout = (event) => {
-    // setSelectedUser(userList[0]);
     clearCurrentUser();
     setCurrentUser(null);
   }
@@ -55,7 +46,7 @@ const Header = ({
               <NavLink to="/Activities" activeClassName="current">Activities</NavLink>
               <NavLink to="/Routines" activeClassName="current">Routines</NavLink>
               <NavLink to="/MyRoutines" activeClassName="current">MyRoutines</NavLink>
-              <button onClick={ handleUserLogout }>LOG OUT, { currentUser.username }</button>
+              <button onClick={ handleUserLogout }>LOG OUT{ currentUser.username }</button>
             </>
           : <>
               <button onClick={ handleUserLogin }>LOG IN</button>
@@ -69,15 +60,3 @@ const Header = ({
 
 export default Header;
 
-
-
-
-  // useEffect(() => {
-  //   setSelectedUser(userList[0]);
-  // }, [ userList ]);
-
-  // const handleSelectChange = (event) => {
-  //   const id = event.target.value;
-  //   const user = userList.find(user => user.id == id);
-  //   setSelectedUser(user);
-  // }
