@@ -47,30 +47,7 @@ const App = () => {
   const [routines, setRoutines] = useState([]);
   const [myRoutines, setMyRoutines] = useState([]);
 
-  // useEffect(() => {
-  //   if (!currentUser) {
-  //     setRoutines(true);
-  //     setUserRoutines([]);
-  //     setActivities(true);
-  //     return;
-  //   }
 
-  //   getRoutinesByUser(currentUser.id)
-  //     .then(routines => {
-  //       setUserRoutines(routines);
-  //     })
-  //     .catch(error => {
-  //       throw error
-  //     });
-
-  //   getActivities(currentUser.id)
-  //     .then(activities => {
-  //       setActivities(activities);
-  //     })
-  //     .catch(error => {
-  //       throw error
-  //     });
-  // }, [currentUser]);
 
   return (
     <Router>
@@ -117,7 +94,7 @@ const App = () => {
                    }}>Welcome to Fitness TrackR... 
                         Please log in or register above.</h2>
                  </Route>
-                 <Redirect to="/" />
+                 <Redirect to="/login" />
               </Switch>
             }
       </div>

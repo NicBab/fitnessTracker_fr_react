@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
-
 import axios from 'axios';
-
 import{ Button, TextField } from '@material-ui/core';
-
 import {loginUser} from '../api';
-
 import './Login.css';
-
 
 const Login = () => {
     const [username,setUsername] = useState();

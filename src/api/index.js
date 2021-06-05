@@ -53,8 +53,6 @@ export async function loginUser(username, password) {
 
 
 
-
-
 export async function getUserData() {
   const url = `${BASE_URL}/users/me`;
   const userToken = localStorage.getItem("token")

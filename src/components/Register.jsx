@@ -1,13 +1,8 @@
 import React from 'react';
-
 import { useState } from 'react';
-
 import{ Button, TextField } from '@material-ui/core';
-
 import {registerUser} from '../api'
-
 import './Register.css'
-
 
 const Register = () => {
     const [username,setUsername] = useState();

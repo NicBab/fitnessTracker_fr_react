@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import { getActivities } from '../api';
 import './Activities.css';
 import {
     Paper,
@@ -13,7 +12,7 @@ import {
 } from '@material-ui/core';
 
 const Activities = () => {
-    const [activities, setActivities] = useState();
+    const [activities, setActivities] = useState([]);
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}/activities`)

@@ -29,6 +29,7 @@
 
 
 
+
   // useEffect(() => {
   //   setSelectedUser(userList[0]);
   // }, [ userList ]);
@@ -38,3 +39,31 @@
   //   const user = userList.find(user => user.id == id);
   //   setSelectedUser(user);
   // }
+
+
+
+
+    // useEffect(() => {
+  //   if (!currentUser) {
+  //     setRoutines(true);
+  //     setUserRoutines([]);
+  //     setActivities(true);
+  //     return;
+  //   }
+
+  //   getRoutinesByUser(currentUser.id)
+  //     .then(routines => {
+  //       setUserRoutines(routines);
+  //     })
+  //     .catch(error => {
+  //       throw error
+  //     });
+
+  //   getActivities(currentUser.id)
+  //     .then(activities => {
+  //       setActivities(activities);
+  //     })
+  //     .catch(error => {
+  //       throw error
+  //     });
+  // }, [currentUser]);

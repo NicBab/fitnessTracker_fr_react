@@ -8,7 +8,6 @@ import {
   createUser
 } from '../auth';
 
-
 const Header = ({
   currentUser,
   setCurrentUser,
@@ -20,16 +19,22 @@ const Header = ({
     event.preventDefault();
   }
 
+
   const handleUserRegister = (event) => {
+    // window.location.href = <Register />
     setCurrentUser(true)
   }
 
+  //Needs work
   const handleUserLogin = (event) => {
     storeCurrentUser(); 
     setCurrentUser(true);
   }
 
+  //Needs work
   const handleUserLogout = (event) => {
+    // localStorage.clear();
+    // window.location.href = '';
     clearCurrentUser();
     setCurrentUser(null);
   }

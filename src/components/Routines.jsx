@@ -12,7 +12,7 @@ import {
 } from '@material-ui/core';
 
 const Routines = () => {
-    const [routines, setRoutines] = useState();
+    const [routines, setRoutines] = useState([]);
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}/routines`)
