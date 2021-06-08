@@ -1,13 +1,7 @@
 import axios from 'axios';
-
 import { storeCurrentUser } from '../auth'
-
-// const BASE_URL = 'http://fitnesstrac-kr.herokuapp.com/api'
-
 const URL = process.env.REACT_APP_FITNESS_TRACKR_API_URL
-
 const userToken = localStorage.getItem('token');
-
 
 export async function registerUser(username, password) {
   try {
@@ -30,7 +24,6 @@ export async function registerUser(username, password) {
   }
 };
 
-
 export async function loginUser(username, password) {
   try {
     const response = await axios.post(`${URL}users/login`, {
@@ -44,8 +37,6 @@ export async function loginUser(username, password) {
     throw error
   }  
 }
-
-
 
 export async function getUserData() {
   const url = `${URL}users/me`;
@@ -61,7 +52,6 @@ export async function getUserData() {
   })
   .catch(console.error);
 };
-
 
 export async function getRoutinesByUser() {
   try {
@@ -80,8 +70,6 @@ export async function getRoutinesByUser() {
   }
 };
 
-
-
 export async function getRoutines() {
   try {
     const response = await fetch(`${URL}/routines`, {
@@ -98,34 +86,6 @@ export async function getRoutines() {
   }
 };
 
-
-// export async function getActivities() {
-//   try {
-//     const response = await fetch(`${BASE_URL}/activities`, {
-//       method: "GET",
-//       headers: {
-//         "Content-Type": "application/json",
-//         // Authorization: `Bearer ${userToken}`,
-//       },
-//     });
-//     const data = await response.json();
-//     return data.activities;
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
-
-
-
-// export async function getRoutinesByUser(userId) {
-//   const BASE_URL = "http://fitnesstrac-kr.herokuapp.com/api/users/routines";
-//   try {
-//       const {data} = await axios.get(`${BASE_URL}/users/${userId}/routines/`);
-//       return data;
-//   } catch (error) {
-//     throw error  
-//   }
-// };
 
 
 

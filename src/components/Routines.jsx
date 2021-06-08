@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import CreateRoutine from './CreateRoutine'
 import '../css/Routines.css'
 import {
     Paper,
@@ -9,7 +8,7 @@ import {
     TableHead, 
     TableRow,
     TableCell,
-    TableBody
+    TableBody,
 } from '@material-ui/core';
 
 const Routines = () => {

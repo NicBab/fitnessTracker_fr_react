@@ -11,7 +11,7 @@ import {
 import axios from 'axios'
 import CreateRoutine from './CreateRoutine'
 import RoutineRow from './RoutineRow'
-import '../css/MyRoutines.css';
+import '../css/MyRoutines.css'; 
 
 const URL = process.env.REACT_APP_FITNESS_TRACKR_API_URL
 const myToken = JSON.parse(localStorage.getItem('token'))
@@ -81,7 +81,7 @@ const MyRoutines = () => {
 						<TableCell align="left">Goal</TableCell>
 						<TableCell align="left">Creator Name</TableCell>
 						<TableCell align="left">Is Public</TableCell>
-						<TableCell align="left"></TableCell>
+						<TableCell align="right"> Edit / Delete</TableCell>
 					</TableRow>
 				</TableHead>
 

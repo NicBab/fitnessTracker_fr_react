@@ -11,7 +11,6 @@ import {
 } from '../auth';
 
 
-
 const Header = ({
   currentUser,
   setCurrentUser,
@@ -23,12 +22,10 @@ const Header = ({
     event.preventDefault();
   }
 
-
   const handleUserRegister = (event) => { 
     window.location.href = <Home />
     setCurrentUser(true)
   }
-
 
   const handleUserLogin = (event) => {
     window.location.href = <Home />
@@ -51,7 +48,6 @@ const Header = ({
           ? <> 
               <NavLink to="/Home" activeClassName="current">Home</NavLink>
               <NavLink to="/Activities" activeClassName="current">Activities</NavLink>
-              <NavLink to="/MyActivities" activeClassName="current">MyActivities</NavLink>
               <NavLink to="/Routines" activeClassName="current">Routines</NavLink>
               <NavLink to="/MyRoutines" activeClassName="current">MyRoutines</NavLink>
               <button onClick={ handleUserLogout }>LOG OUT{ currentUser.username }</button>

@@ -9,7 +9,6 @@ const createActivity = () => {
     const [description, setDescription] = useState();
     const [myActivities, setMyActivities] = useState([]);
 
-
     const createActivityPost = async () => {
         return await fetch (`${URL}activities`, {
             method: "POST",
@@ -32,11 +31,11 @@ const createActivity = () => {
     const onActivitySubmit = (event) => {
         event.preventDefault();
         console.log(event)
+        createActivityPost()
     }
 
     return (
-        <div id="main">
-            <h1>My Activities</h1>
+        <div>
             <form id="form" noValidate autoComplete="off" onSubmit={onActivitySubmit}>
                 <TextField
                     id="name"

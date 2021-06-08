@@ -29,7 +29,7 @@ const RoutineRow = ({
 
   const onSave = (id) => {
     setEditMode(false);
-    fetch(`${URL}${Routines}/${id}`, {
+    fetch(`${URL}routines/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -47,9 +47,9 @@ const RoutineRow = ({
       .catch(console.error);
   };
 
-  const onDelete = () => {
+  const onDelete = (id) => {
     onRemoveRoutine();
-    fetch(`${URL}${Routines}/${id}`, {
+    fetch(`${URL}routines/${id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -66,6 +66,7 @@ const RoutineRow = ({
   return (
     <TableRow key={id}>
       <TableCell component="th" scope="row">
+          {id}
       </TableCell>
       <TableCell align="left">
         {editMode ? (
@@ -102,7 +103,9 @@ const RoutineRow = ({
             }}
           />
         ) : (
-          <CreateIcon style={{ cursor: "pointer" }} onClick={onEdit} />
+          <CreateIcon 
+            style={{ cursor: "pointer" }} 
+            onClick={onEdit} />
         )}
       </TableCell>
       <TableCell align="left">

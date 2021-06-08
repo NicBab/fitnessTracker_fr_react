@@ -29,12 +29,10 @@ const Register = () => {
       }
     };
 
-
     const onFormSubmit = (event)=> {
       event.preventDefault();
       registerUser();
   };
-
 
     return (
         <form id="form" noValidate autoComplete="off" onSubmit={onFormSubmit}>

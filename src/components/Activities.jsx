@@ -11,6 +11,7 @@ import {
     TableBody
 } from '@material-ui/core';
 import '../css/Activities.css'
+import CreateActivity from './CreateActivity';
 
 const Activities = () => {
     const [activities, setActivities] = useState([]);
@@ -21,7 +22,6 @@ const Activities = () => {
          .then(({ data }) => {
              if (data.length) {
                  setActivities(data)
-                 console.log(data)
              }
          });
     },[]);
@@ -29,6 +29,7 @@ const Activities = () => {
     return (
         <>
          <h1>Activities Page</h1>
+         <CreateActivity />
            <TableContainer component={Paper}>
               <Table>
                   <TableHead>

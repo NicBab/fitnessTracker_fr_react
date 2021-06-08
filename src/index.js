@@ -78,10 +78,6 @@ const App = () => {
                   <Activities />
                 </Route>
 
-                <Route path="/myActivities">
-                  <MyActivities />
-                </Route>
-
                 <Route path="/routines">
                   <Routines />
                 </Route>
