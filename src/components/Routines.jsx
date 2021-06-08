@@ -14,9 +14,10 @@ import {
 
 const Routines = () => {
     const [routines, setRoutines] = useState([]);
+    const URL = process.env.REACT_APP_FITNESS_TRACKR_API_URL
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}routines`)
+        axios.get(`${URL}routines`)
          .then(({ data }) => {
              if (data.length) {
                  setRoutines(data)

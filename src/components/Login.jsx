@@ -9,11 +9,12 @@ const Login = () => {
     const [username,setUsername] = useState();
     const [password, setPassword] = useState();
     const [errorMessage, setErrorMessage] = useState();
+    const URL = process.env.REACT_APP_FITNESS_TRACKR_API_URL
 
    
     const loginUser = async () => {
       return await axios
-        .post(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}users/login`, {
+        .post(`${URL}users/login`, {
           username,
           password,
         })

@@ -10,15 +10,16 @@ import {
 } from "@material-ui/core";
 import axios from 'axios'
 import CreateRoutine from './CreateRoutine'
+import RoutineRow from './RoutineRow'
 import '../css/MyRoutines.css';
 
-const BASE = process.env.REACT_APP_FITNESS_TRACKR_API_URL
+const URL = process.env.REACT_APP_FITNESS_TRACKR_API_URL
 const myToken = JSON.parse(localStorage.getItem('token'))
 
 
 const myUsernameFetch = (myToken) => {
     try {
-        return axios.get(`${BASE}users/me`, {
+        return axios.get(`${URL}users/me`, {
             headers: {
                 "content-Type": 'application/json',
                 "Authorization": `Bearer ${myToken}`,
@@ -34,7 +35,7 @@ const myUsernameFetch = (myToken) => {
 
 const myRoutinesFetch = (username, myToken) => {
     try {
-        return axios.get(`${BASE}users/${username}/routines`, {
+        return axios.get(`${URL}users/${username}/routines`, {
             headers: {
                 "content-Type": 'application/json',
                 "Authorization": `Bearer ${myToken}`,
@@ -60,6 +61,12 @@ const MyRoutines = () => {
         }
     }, [])
 
+    const onRemoveRoutine = (idx) => {
+        const copy = [...myRoutines]
+        copy.splice(idx, 1)
+        setMyRoutines(copy)
+    }
+
     return (
         <>
         <CreateRoutine />
@@ -79,24 +86,22 @@ const MyRoutines = () => {
 				</TableHead>
 
                 <TableBody>
-                      {myRoutines.map((routine) => {
+                      {myRoutines.map((routine, idx) => {
                           return (
-                            <TableRow key={routine.name}>
-                                <TableCell component="th" scope="row">{routine.id}</TableCell>
-                                <TableCell align="left">{routine.name}</TableCell>
-                                <TableCell align="left">{routine.goal}</TableCell>
-                                <TableCell align="left">{routine.creatorName}</TableCell>
-                            </TableRow>
+                                <RoutineRow
+                                    key={routine.id}
+                                    routine={routine}
+                                    onRemoveRoutine={() => {
+                                        onRemoveRoutine(idx);
+                                }}
+                            />
                           )
                       })}
                   </TableBody>
-
-			</Table>
-		</TableContainer>
+			 </Table>
+		 </TableContainer>
       </>
-
     )
- 
 }
 
 export default MyRoutines;

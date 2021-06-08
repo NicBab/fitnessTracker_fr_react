@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, TextField }from '@material-ui/core';
 
-const BASE = process.env.REACT_APP_FITNESS_TRACKR_API_URL
+const URL = process.env.REACT_APP_FITNESS_TRACKR_API_URL
 const myToken = JSON.parse(localStorage.getItem('token'))
 
 const createActivity = () => {
@@ -11,6 +11,22 @@ const createActivity = () => {
 
 
     const createActivityPost = async () => {
+        return await fetch (`${URL}activities`, {
+            method: "POST",
+            headers: {
+                "Content-Type": 'application/json',
+                "Authorization": `Bearer ${myToken}`
+            },
+            body: JSON.stringify({
+                name: name,
+                description: description,
+            }),
+        })
+         .then((response) => response.json())
+         .then((result) => {
+             console.log(result)
+         })
+         .catch(console.error)
     }
 
     const onActivitySubmit = (event) => {

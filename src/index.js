@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
 import ReactDOM from 'react-dom';
-
 import {
     BrowserRouter as Router,
     Route,
@@ -9,11 +7,9 @@ import {
     Redirect
 } from 'react-router-dom';
 
-
 import {
     getCurrentUser,
 } from './auth';
-
 
 import {
     registerUser,
@@ -22,7 +18,6 @@ import {
     getRoutines,
     getActivities,
 } from './api'
-
 
 import {
     Header,
@@ -34,8 +29,6 @@ import {
     MyRoutines,
     Footer,
 } from './components/Index';
-
-
 
 const App = () => {
   const [userList, setUserList] = useState([]);
@@ -66,7 +59,6 @@ const App = () => {
   }),
     [];
  
-
   return (
     <Router>
       <div id="App">

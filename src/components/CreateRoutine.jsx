@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, TextField } from '@material-ui/core';
 
-const BASE = process.env.REACT_APP_FITNESS_TRACKR_API_URL
+const URL = process.env.REACT_APP_FITNESS_TRACKR_API_URL
 const myToken = JSON.parse(localStorage.getItem('token'))
 
 const CreateRoutine = () => {
@@ -11,7 +11,7 @@ const CreateRoutine = () => {
     const [isPublic, setIsPublic] = useState(true);
 
     const createRoutinePost = async () => {
-        return await fetch(`${BASE}/routines`, {
+        return await fetch(`${URL}/routines`, {
           method: "POST",
           headers: {
             'Content-Type': 'application/json',

@@ -10,16 +10,18 @@ import {
     TableCell,
     TableBody
 } from '@material-ui/core';
+import '../css/Activities.css'
 
 const Activities = () => {
     const [activities, setActivities] = useState([]);
+    const URL = process.env.REACT_APP_FITNESS_TRACKR_API_URL
 
     useEffect(() => {
-        axios.get(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}activities`)
+        axios.get(`${URL}activities`)
          .then(({ data }) => {
              if (data.length) {
                  setActivities(data)
-                 
+                 console.log(data)
              }
          });
     },[]);
