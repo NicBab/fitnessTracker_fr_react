@@ -3,13 +3,14 @@ import { NavLink } from 'react-router-dom';
 import '../css/Header.css';
 import Register from './Register';
 import Home from './Home';
+import { loginUser } from '../api';
 import {
   storeCurrentUser,
   clearCurrentUser,
   createUser
 } from '../auth';
 
-import { loginUser } from '../api';
+
 
 const Header = ({
   currentUser,
@@ -28,14 +29,13 @@ const Header = ({
     setCurrentUser(true)
   }
 
-  //Needs work
+
   const handleUserLogin = (event) => {
     window.location.href = <Home />
     loginUser()
   
   }
 
-  //Needs work
   const handleUserLogout = (event) => {
     clearCurrentUser();
     setCurrentUser(false);
@@ -51,6 +51,7 @@ const Header = ({
           ? <> 
               <NavLink to="/Home" activeClassName="current">Home</NavLink>
               <NavLink to="/Activities" activeClassName="current">Activities</NavLink>
+              <NavLink to="/MyActivities" activeClassName="current">MyActivities</NavLink>
               <NavLink to="/Routines" activeClassName="current">Routines</NavLink>
               <NavLink to="/MyRoutines" activeClassName="current">MyRoutines</NavLink>
               <button onClick={ handleUserLogout }>LOG OUT{ currentUser.username }</button>

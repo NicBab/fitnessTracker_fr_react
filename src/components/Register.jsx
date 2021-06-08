@@ -8,11 +8,33 @@ const Register = () => {
     const [username,setUsername] = useState();
     const [password, setPassword] = useState();
 
+    async function registerUser() {
+      try {
+        const response =
+            await fetch(`${BASE}/users/register`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username,
+                    password,
+                }),
+            })
+        const data = await response.json()
+        const token = await data.token
+        storeCurrentUser(token)
+      } catch (error) {
+          console.log(error)
+      }
+    };
+
+
     const onFormSubmit = (event)=> {
       event.preventDefault();
-      registerUser(username, password);
-      console.log(username,password)
+      registerUser();
   };
+
 
     return (
         <form id="form" noValidate autoComplete="off" onSubmit={onFormSubmit}>

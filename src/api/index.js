@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { storeCurrentUser } from '../auth'
 
-const BASE_URL = 'http://fitnesstrac-kr.herokuapp.com/api'
+// const BASE_URL = 'http://fitnesstrac-kr.herokuapp.com/api'
 
 const BASE = process.env.REACT_APP_FITNESS_TRACKR_API_URL
 
@@ -32,23 +32,23 @@ export async function registerUser(username, password) {
 
 
 export async function loginUser(username, password) {
-    try {
-      const response = await axios.post(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}users/login`, {
-        username,
-        password
-      })
-      console.log(response)
-      // const token = 
+  try {
+    const response = await axios.post(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}users/login`, {
+      username,
+      password
+    })
+    console.log(response)
+    // const token = 
 
-    } catch(error) {
-      throw error
-    }  
+  } catch(error) {
+    throw error
+  }  
 }
 
 
 
 export async function getUserData() {
-  const url = `${BASE_URL}/users/me`;
+  const url = `${BASE}users/me`;
   const userToken = localStorage.getItem("token")
   await fetch(url, {
   headers: {
@@ -66,7 +66,7 @@ export async function getUserData() {
 export async function getRoutinesByUser() {
   try {
     const userToken = localStorage.getItem()
-    const response = await fetch(`${BASE_URL}/users/routines`, {
+    const response = await fetch(`${BASE}users/routines`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -99,21 +99,21 @@ export async function getRoutines() {
 };
 
 
-export async function getActivities() {
-  try {
-    const response = await fetch(`${BASE_URL}/activities`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        // Authorization: `Bearer ${userToken}`,
-      },
-    });
-    const data = await response.json();
-    return data.activities;
-  } catch (err) {
-    console.error(err);
-  }
-};
+// export async function getActivities() {
+//   try {
+//     const response = await fetch(`${BASE_URL}/activities`, {
+//       method: "GET",
+//       headers: {
+//         "Content-Type": "application/json",
+//         // Authorization: `Bearer ${userToken}`,
+//       },
+//     });
+//     const data = await response.json();
+//     return data.activities;
+//   } catch (err) {
+//     console.error(err);
+//   }
+// };
 
 
 

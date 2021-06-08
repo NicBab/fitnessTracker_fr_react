@@ -29,6 +29,7 @@ import {
     Register,
     Home,
     Activities,
+    MyActivities,
     Routines,
     MyRoutines,
     Footer,
@@ -40,12 +41,30 @@ const App = () => {
   const [userList, setUserList] = useState([]);
   const [currentUser, setCurrentUser] = useState([]);
   const [userRoutines, setUserRoutines] = useState([]);
-
   const [home, setHome] = useState([]);
-  const [activities, setActivities] = useState([]);
+  const [activities, setActivities] = useState([{id: "", name: "", description: ""},]);
   const [routines, setRoutines] = useState([]);
-  const [myRoutines, setMyRoutines] = useState([]);
+  const [myRoutines, setMyRoutines] = useState([
+    {
+        id: "",
+        creatorId: "",
+        isPublic: true,
+        name: "",
+        goal: "",
+        creatorName: "",
+        activities: [],
+    }
+  ]);
 
+  const [auth, setAuth] = useState(false);
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("token"))) {
+      setAuth(true);
+    } else {
+      setAuth(false);
+    }
+  }),
+    [];
  
 
   return (
@@ -67,6 +86,10 @@ const App = () => {
                   <Activities />
                 </Route>
 
+                <Route path="/myActivities">
+                  <MyActivities />
+                </Route>
+
                 <Route path="/routines">
                   <Routines />
                 </Route>
@@ -76,7 +99,7 @@ const App = () => {
                 </Route>
 
                 <Route exact path="/login">
-                  <h2 style={{padding: ".5em"}}>Welcome</h2>
+                  <h2 style={{padding: ".5em"}}></h2>
                 </Route>
                 
                 <Redirect to="/home" />
@@ -87,7 +110,7 @@ const App = () => {
                  <Route path="/">
                    <h2 style={{padding: ".5em"}}>Welcome to Fitness TrackR...log in or register above.</h2>
                  </Route>
-                 <Redirect to="/home" />
+                 <Redirect to="/myRoutines" />
               </Switch>
             }
       </div>

@@ -11,7 +11,6 @@ const Login = () => {
     const [errorMessage, setErrorMessage] = useState();
 
    
-
     const loginUser = async () => {
       return await axios
         .post(`${process.env.REACT_APP_FITNESS_TRACKR_API_URL}users/login`, {
@@ -36,10 +35,12 @@ const Login = () => {
         });
     };
 
+
     const onLoginSubmit = (event)=> {
       event.preventDefault();
       loginUser();
   };
+
 
     return (
       <>

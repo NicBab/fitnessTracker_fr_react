@@ -7,7 +7,7 @@ import '../css/Home.css';
 const Home = () => {
     return(
         <>
-        <h1 id="head">Welcome to my Fitness TrackR</h1>
+          <h1 id="main">Welcome to my Fitness TrackR</h1>
             <Register />
             <Login />
         </>

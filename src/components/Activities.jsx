@@ -19,7 +19,7 @@ const Activities = () => {
          .then(({ data }) => {
              if (data.length) {
                  setActivities(data)
-                 console.log(data, 'activities')
+                 
              }
          });
     },[]);
