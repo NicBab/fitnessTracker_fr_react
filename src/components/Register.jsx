@@ -2,7 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import{ Button, TextField } from '@material-ui/core';
 import {registerUser} from '../api'
+import { storeCurrentUser } from '../auth'
 import '../css/Register.css'
+const URL = process.env.REACT_APP_FITNESS_TRACKR_API_URL
 
 const Register = () => {
     const [username,setUsername] = useState();
@@ -22,6 +24,8 @@ const Register = () => {
                 }),
             })
         const data = await response.json()
+        console.log(data)
+      
         const token = await data.token
         storeCurrentUser(token)
       } catch (error) {

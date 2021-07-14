@@ -3,6 +3,7 @@ import { Button, TextField }from '@material-ui/core';
 
 const URL = process.env.REACT_APP_FITNESS_TRACKR_API_URL
 const myToken = JSON.parse(localStorage.getItem('token'))
+console.log(myToken)
 
 const createActivity = () => {
     const [name, setName] = useState();

@@ -86,7 +86,7 @@ const MyRoutines = () => {
 				</TableHead>
 
                 <TableBody>
-                      {myRoutines.map((routine, idx) => {
+                      {myRoutines && myRoutines.map((routine, idx) => {
                           return (
                                 <RoutineRow
                                     key={routine.id}
